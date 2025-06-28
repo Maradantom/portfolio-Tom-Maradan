@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie — Tom Maradan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      background: #fdfdfd;
+      color: #111;
+    }
+    header, nav, footer {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #111;
+      font-weight: bold;
+    }
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .filters select {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .project {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom: 3rem;
+      overflow: hidden;
+    }
+    .project-banner {
+      background-image: url('https://via.placeholder.com/1200x400');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+    }
+    .project-content {
+      padding: 2rem;
+    }
+    .project-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .project-info span {
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      padding: 0.4rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .project-description {
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+      animation: scroll 20s linear infinite;
+    }
+    .carousel img {
+      width: 300px;
+      height: 200px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      object-fit: cover;
+      scroll-snap-align: start;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Galerie des Projets</h1>
+    <p>Rendus, maquettes numériques & expérimentations visuelles</p>
+  </header>
+
+  <nav>
+    <a href="Index.html">Accueil</a>
+    <a href="Pages/Histoire/Index.html">Mon histoire</a>
+    <a href="Pages/Expérience/Index.html">Expériences</a>
+    <a href="Pages/Photos-drone/Index.html">Drone & Photo</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <main>
+    <div class="filters">
+      <select id="year-filter">
+        <option value="">Toutes les années</option>
+        <option value="2025">2025</option>
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+      </select>
+      <select id="sector-filter">
+        <option value="">Tous les secteurs</option>
+        <option value="résidentiel">Résidentiel</option>
+        <option value="tertiaire">Tertiaire</option>
+      </select>
+      <select id="location-filter">
+        <option value="">Tous les lieux</option>
+        <option value="Lyon">Concept</option>
+        <option value="Annecy">Désert</option>
+        <option value="Autre">Faverges</option>
+      </select>
+    </div>
+
+    <section class="project" data-year="2025" data-sector="tertiaire" data-location="Annecy">
+      <div class="project-banner"></div>
+      <div class="project-content">
+        <div class="project-info">
+          <span>2025</span>
+          <span>Concept</span>
+          <span>Tertiaire</span>
+          <span>Durée : 6 mois</span>
+        </div>
+        <p class="project-description">
+          Le projet Ribbon explore un mode de vie épuré et résilient. Le volume architectural s’inscrit dans un paysage naturel et mise sur des matériaux locaux et des solutions bioclimatiques.
+        </p>
+        <div class="carousel">
+          <img src="https://via.placeholder.com/300x200" alt="Ribbon 1">
+          <img src="https://via.placeholder.com/300x200" alt="Ribbon 2">
+          <img src="https://via.placeholder.com/300x200" alt="Ribbon 3">
+        </div>
+      </div>
+    </section>
+
+    <section class="project" data-year="2024" data-sector="tertiaire" data-location="désert">
+      <div class="project-banner" style="background-image: url('https://via.placeholder.com/1200x400/cccccc');"></div>
+      <div class="project-content">
+        <div class="project-info">
+          <span>2024</span>
+          <span>Désert</span>
+          <span>Résidentiel</span>
+          <span>Durée : 1 mois</span>
+        </div>
+        <p class="project-description">
+          Projet expérimental intégrant architecture souterraine, gestion climatique naturelle, et storytelling visuel. Une réflexion sur l’isolement et l’adaptation au climat extrême.
+        </p>
+        <div class="carousel">
+          <img src="https://via.placeholder.com/300x200" alt="Troglodyte 1">
+          <img src="https://via.placeholder.com/300x200" alt="Troglodyte 2">
+          <img src="https://via.placeholder.com/300x200" alt="Troglodyte 3">
+        </div>
+      </div>
+    </section>
+
+    <section class="project" data-year="2023" data-sector="résidentiel" data-location="faverges">
+      <div class="project-banner" style="background-image: url('https://via.placeholder.com/1200x400/aaaaaa');"></div>
+      <div class="project-content">
+        <div class="project-info">
+          <span>2023</span>
+          <span>Faverges</span>
+          <span>Résidentiel</span>
+          <span>Durée : 1 mois</span>
+        </div>
+        <p class="project-description">
+          Projet de réhabilitation entre tradition et modernité. Travail sur la lumière, les matériaux et la reconversion d’un hangar en maison contemporaine.
+        </p>
+        <div class="carousel">
+          <img src="https://via.placeholder.com/300x200" alt="Faverges 1">
+          <img src="https://via.placeholder.com/300x200" alt="Faverges 2">
+          <img src="https://via.placeholder.com/300x200" alt="Faverges 3">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Tom Maradan</p>
+  </footer>
+</body>
+</html>
