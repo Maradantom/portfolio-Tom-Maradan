@@ -199,6 +199,31 @@
     </section>
   </main>
 
+
+  <!-- Modale de projet -->
+<div id="projectModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+
+    <!-- Slider -->
+    <div class="slider">
+      <button class="prev" onclick="changeSlide(-1)">←</button>
+      <img id="modalImage" src="image1.jpg" alt="Projet">
+      <button class="next" onclick="changeSlide(1)">→</button>
+    </div>
+
+    <!-- Texte descriptif -->
+    <div class="modal-description">
+      <h2 id="modalTitle">Titre du projet</h2>
+      <p id="modalText">Texte descriptif du projet, ses inspirations, ses matériaux, etc.</p>
+      <div class="modal-gallery">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+      </div>
+    </div>
+  </div>
+</div>
+
   <footer>
     <p>© 2025 Tom Maradan</p>
   </footer>
