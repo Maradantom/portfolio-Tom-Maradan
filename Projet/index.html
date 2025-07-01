@@ -4,102 +4,139 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galerie — Tom Maradan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --main-color: #111;
+      --bg-color: #fdfdfd;
+      --card-bg: white;
+      --accent-color: #eee;
+    }
+
     body {
       margin: 0;
-      font-family: 'Space Grotesk', sans-serif;
-      background: #fdfdfd;
-      color: #111;
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg-color);
+      color: var(--main-color);
     }
+
     header, nav, footer {
       text-align: center;
       padding: 2rem 1rem;
     }
+
     nav a {
       margin: 0 1rem;
       text-decoration: none;
-      color: #111;
+      color: var(--main-color);
       font-weight: bold;
     }
+
     main {
       max-width: 1200px;
       margin: auto;
       padding: 2rem;
     }
+
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       font-weight: 600;
     }
+
     .filters {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
       justify-content: center;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
+
     .filters select {
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1rem;
       font-size: 1rem;
-      border-radius: 5px;
+      border-radius: 12px;
       border: 1px solid #ccc;
     }
+
     .project {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      margin-bottom: 3rem;
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      margin-bottom: 4rem;
       overflow: hidden;
+      transition: transform 0.3s ease;
     }
+
+    .project:hover {
+      transform: translateY(-5px);
+    }
+
     .project-banner {
-      background-image: url('https://via.placeholder.com/1200x400');
+      width: 100%;
+      height: 400px;
       background-size: cover;
       background-position: center;
-      height: 300px;
     }
+
     .project-content {
       padding: 2rem;
     }
+
     .project-info {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-bottom: 1.5rem;
+      margin: 1.5rem 0;
     }
+
     .project-info span {
-      background: #f5f5f5;
-      border: 1px solid #ddd;
-      border-radius: 20px;
-      padding: 0.4rem 1rem;
+      background: var(--accent-color);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
       font-size: 0.9rem;
       font-weight: 500;
     }
+
     .project-description {
-      margin-bottom: 2rem;
-      line-height: 1.6;
+      margin: 2rem 0;
+      line-height: 1.7;
     }
-    .carousel {
+
+    .carousel, .gallery-row {
       display: flex;
-      overflow-x: auto;
       gap: 1rem;
+      overflow-x: auto;
       padding-bottom: 1rem;
-      scroll-snap-type: x mandatory;
-      animation: scroll 20s linear infinite;
     }
-    .carousel img {
-      width: 300px;
-      height: 200px;
-      flex-shrink: 0;
-      border-radius: 10px;
+
+    .carousel img, .gallery-row img {
+      height: 220px;
+      border-radius: 16px;
       object-fit: cover;
-      scroll-snap-align: start;
+      flex-shrink: 0;
     }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
     }
-    .carousel::-webkit-scrollbar {
-      display: none;
+
+    .gallery-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .project-banner {
+        height: 200px;
+      }
     }
   </style>
 </head>
@@ -108,14 +145,6 @@
     <h1>Galerie des Projets</h1>
     <p>Rendus, maquettes numériques & expérimentations visuelles</p>
   </header>
-
-  <nav>
-    <a href="Index.html">Accueil</a>
-    <a href="Pages/Histoire/Index.html">Mon histoire</a>
-    <a href="Pages/Expérience/Index.html">Expériences</a>
-    <a href="Pages/Photos-drone/Index.html">Drone & Photo</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
 
   <main>
     <div class="filters">
@@ -132,20 +161,21 @@
       </select>
       <select id="location-filter">
         <option value="">Tous les lieux</option>
-        <option value="Lyon">Concept</option>
-        <option value="Annecy">Désert</option>
-        <option value="Autre">Faverges</option>
+        <option value="Annecy">Annecy</option>
+        <option value="Désert">Désert</option>
+        <option value="Faverges">Faverges</option>
       </select>
     </div>
 
     <section class="project" data-year="2025" data-sector="tertiaire" data-location="Annecy">
-      <div class="project-banner"></div>
+      <div class="project-banner" style="background-image: url('https://via.placeholder.com/1200x400');"></div>
       <div class="project-content">
         <div class="project-info">
           <span>2025</span>
           <span>Concept</span>
           <span>Tertiaire</span>
           <span>Durée : 6 mois</span>
+          <span>Studio personnel</span>
         </div>
         <p class="project-description">
           Le projet Ribbon explore un mode de vie épuré et résilient. Le volume architectural s’inscrit dans un paysage naturel et mise sur des matériaux locaux et des solutions bioclimatiques.
@@ -155,77 +185,91 @@
           <img src="https://via.placeholder.com/300x200" alt="Ribbon 2">
           <img src="https://via.placeholder.com/300x200" alt="Ribbon 3">
         </div>
+        <p class="project-description">
+          Ribbon symbolise un ruban architectural qui serpente le relief. La conception respecte l’environnement tout en créant une expérience immersive.
+        </p>
+        <div class="gallery-grid">
+          <img src="https://via.placeholder.com/400x300" alt="Image 1">
+          <img src="https://via.placeholder.com/400x300" alt="Image 2">
+          <img src="https://via.placeholder.com/400x300" alt="Image 3">
+        </div>
+        <div class="gallery-row">
+          <img src="https://via.placeholder.com/300x200" alt="Image supplémentaire">
+          <img src="https://via.placeholder.com/300x200" alt="Image supplémentaire">
+          <img src="https://via.placeholder.com/300x200" alt="Image supplémentaire">
+        </div>
       </div>
     </section>
 
-    <section class="project" data-year="2024" data-sector="tertiaire" data-location="désert">
-      <div class="project-banner" style="background-image: url('https://via.placeholder.com/1200x400/cccccc');"></div>
+    <section class="project" data-year="2024" data-sector="tertiaire" data-location="Annecy">
+      <div class="project-banner" style="background-image: url('https://via.placeholder.com/1200x400');"></div>
       <div class="project-content">
         <div class="project-info">
           <span>2024</span>
-          <span>Désert</span>
-          <span>Résidentiel</span>
-          <span>Durée : 1 mois</span>
+          <span>Concept</span>
+          <span>Tertiaire</span>
+          <span>Durée : 6 mois</span>
+          <span>Maison personnel</span>
         </div>
         <p class="project-description">
-          Projet expérimental intégrant architecture souterraine, gestion climatique naturelle, et storytelling visuel. Une réflexion sur l’isolement et l’adaptation au climat extrême.
+          Le projet Ribbon explore un mode de vie épuré et résilient. Le volume architectural s’inscrit dans un paysage naturel et mise sur des matériaux locaux et des solutions bioclimatiques.
         </p>
         <div class="carousel">
-          <img src="https://via.placeholder.com/300x200" alt="Troglodyte 1">
-          <img src="https://via.placeholder.com/300x200" alt="Troglodyte 2">
-          <img src="https://via.placeholder.com/300x200" alt="Troglodyte 3">
-        </div>
-      </div>
-    </section>
-
-    <section class="project" data-year="2023" data-sector="résidentiel" data-location="faverges">
-      <div class="project-banner" style="background-image: url('https://via.placeholder.com/1200x400/aaaaaa');"></div>
-      <div class="project-content">
-        <div class="project-info">
-          <span>2023</span>
-          <span>Faverges</span>
-          <span>Résidentiel</span>
-          <span>Durée : 1 mois</span>
+          <img src="https://via.placeholder.com/300x200" alt="Ribbon 1">
+          <img src="https://via.placeholder.com/300x200" alt="Ribbon 2">
+          <img src="https://via.placeholder.com/300x200" alt="Ribbon 3">
         </div>
         <p class="project-description">
-          Projet de réhabilitation entre tradition et modernité. Travail sur la lumière, les matériaux et la reconversion d’un hangar en maison contemporaine.
+          Ribbon symbolise un ruban architectural qui serpente le relief. La conception respecte l’environnement tout en créant une expérience immersive.
         </p>
-        <div class="carousel">
-          <img src="https://via.placeholder.com/300x200" alt="Faverges 1">
-          <img src="https://via.placeholder.com/300x200" alt="Faverges 2">
-          <img src="https://via.placeholder.com/300x200" alt="Faverges 3">
+        <div class="gallery-grid">
+          <img src="https://via.placeholder.com/400x300" alt="Image 1">
+          <img src="https://via.placeholder.com/400x300" alt="Image 2">
+          <img src="https://via.placeholder.com/400x300" alt="Image 3">
+        </div>
+        <div class="gallery-row">
+          <img src="https://via.placeholder.com/300x200" alt="Image supplémentaire">
+          <img src="https://via.placeholder.com/300x200" alt="Image supplémentaire">
+          <img src="https://via.placeholder.com/300x200" alt="Image supplémentaire">
         </div>
       </div>
     </section>
   </main>
 
-
-  <!-- Modale de projet -->
-<div id="projectModal" class="modal hidden">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-
-    <!-- Slider -->
-    <div class="slider">
-      <button class="prev" onclick="changeSlide(-1)">←</button>
-      <img id="modalImage" src="image1.jpg" alt="Projet">
-      <button class="next" onclick="changeSlide(1)">→</button>
-    </div>
-
-    <!-- Texte descriptif -->
-    <div class="modal-description">
-      <h2 id="modalTitle">Titre du projet</h2>
-      <p id="modalText">Texte descriptif du projet, ses inspirations, ses matériaux, etc.</p>
-      <div class="modal-gallery">
-        <img src="image2.jpg" alt="Image 2">
-        <img src="image3.jpg" alt="Image 3">
-      </div>
-    </div>
-  </div>
-</div>
-
+  <footer class="footer">
+    <img src="Photo/Logo/Studiotm-long.png" alt="Logo Tom Maradan" class="footer-logo">
+  </footer>
   <footer>
     <p>© 2025 Tom Maradan</p>
   </footer>
+
+  <script>
+    const yearFilter = document.getElementById("year-filter");
+    const sectorFilter = document.getElementById("sector-filter");
+    const locationFilter = document.getElementById("location-filter");
+    const projects = document.querySelectorAll(".project");
+
+    function filterProjects() {
+      const year = yearFilter.value;
+      const sector = sectorFilter.value;
+      const location = locationFilter.value;
+
+      projects.forEach(project => {
+        const matchYear = !year || project.dataset.year === year;
+        const matchSector = !sector || project.dataset.sector === sector;
+        const matchLocation = !location || project.dataset.location === location;
+
+        if (matchYear && matchSector && matchLocation) {
+          project.style.display = "block";
+        } else {
+          project.style.display = "none";
+        }
+      });
+    }
+
+    yearFilter.addEventListener("change", filterProjects);
+    sectorFilter.addEventListener("change", filterProjects);
+    locationFilter.addEventListener("change", filterProjects);
+  </script>
 </body>
 </html>
