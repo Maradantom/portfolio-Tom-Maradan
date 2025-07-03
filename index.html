@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tom Maradan — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tom Maradan - Portfolio</title>
+  <link rel="icon" href="images/logotm.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
 
     /* Version ordinateur */
@@ -359,55 +360,102 @@ section {
 .modal {
   display: none;
   position: fixed;
+  z-index: 1000;
   top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.9);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.modal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 12px;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.9);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  overflow: auto;
-  padding: 2rem;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  overflow-y: auto;
+  backdrop-filter: blur(3px);
 }
 
 .modal-content {
-  position: relative;
+  background: white;
+  margin: 3% auto;
+  padding: 20px;
+  border-radius: 1.5rem;
   max-width: 900px;
-  width: 100%;
-  background: #fff;
-  border-radius: 12px;
-  padding: 1rem 2rem 2rem 2rem;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  position: relative;
 }
 
-.modal-close {
+.close {
   position: absolute;
-  top: 10px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 2rem;
+  top: 15px;
+  right: 25px;
+  font-size: 30px;
   cursor: pointer;
-  color: #333;
 }
+
+/* Carrousel */
+.carousel {
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.carousel-image {
+  width: 100%;
+  display: none;
+  border-radius: 1rem;
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  color: white;
+  background-color: rgba(0,0,0,0.4);
+  border: none;
+  font-size: 24px;
+  z-index: 1;
+  border-radius: 50%;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Points clés */
+.points-clefs {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+.point {
+  background: #f0f0f0;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  margin: 5px;
+}
+
+/* Description */
+.description {
+  margin: 30px 0;
+}
+.description h3 {
+  margin-bottom: 10px;
+}
+
+/* Galerie de détails */
+.galerie-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.detail img {
+  width: 100%;
+  border-radius: 1rem;
+}
+.detail p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+
 
 .slider {
   position: relative;
@@ -734,6 +782,132 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+
+
+    /* RESET & GLOBALS */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      font-family: 'Outfit', sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+    header {
+      background-color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    header img.logo {
+      height: 40px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      font-weight: 500;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1, h2, h3 {
+      margin-bottom: 1rem;
+    }
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .intro img {
+      max-width: 200px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    /* GRID PORTFOLIO */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .portfolio-item {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.03);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .portfolio-item h3 {
+      padding: 1rem;
+      font-size: 1.2rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -854,57 +1028,183 @@ html {
 <section id="projets">
   <div class="projets-grid">
 
-    <div class="projet" onclick="openFullscreen('Photo/projet1.jpg')">
+  <!-- Projet 1 -->
+ <div class="projet" onclick="openModal('modal1')">
       <img src="Projet/1-Villa Annecy/EXT L 2.png" alt="Projet villa">
       <div class="chiffres">
-        <span>250 m²</span><span>4 mois</span><span>Eco-conçu</span><span>3 niveaux</span><span>2024</span>
+        <span>250 m²</span><span>4 mois</span><span>2025</span><span>Residentiel</span><span>Projet seul</span>
       </div>
       <p>Rénovation d’un ancien hangar en résidence moderne au bord du lac d’Annecy.</p>
     </div>
 
-    <div class="projet" onclick="openFullscreen('Photo/projet2.jpg')">
-      <img src="Projet/2-Projet Maison/Maison__Drone.png" alt="Projet 2">
+   <!-- Projet 2 -->
+ <div class="projet" onclick="openModal('modal2')">
+      <img src="Projet/2-Projet Maison/Maison__Drone.png" alt="Projet Maison">
       <div class="chiffres">
-        <span>180 m²</span><span>6 mois</span><span>Bois local</span><span>2 étages</span><span>2023</span>
+        <span>180 m²</span><span>6 mois</span><span>2025</span><span>Residentiel</span><span>Projet seul</span>
       </div>
       <p>Maison familiale intégrée dans un cadre alpin, axée sur la lumière naturelle.</p>
     </div>
 
-    <div class="projet" onclick="openFullscreen('Photo/projet3.jpg')">
-      <img src="Projet/3-Projet appart Lyon /Cuisine:salon.png" alt="Projet 3">
+  <!-- Projet 3 -->
+ <div class="projet" onclick="openModal('modal3')">
+      <img src="Projet/3-Projet appart Lyon /Cuisine:salon.png" alt="Projet Appartement">
       <div class="chiffres">
-        <span>90 m²</span><span>2 mois</span><span>Minimalisme</span><span>Studio & terrasse</span><span>2025</span>
+        <span>90 m²</span><span>2 mois</span><span>2024</span><span>Residentiel</span><span>Projet de groupe</span>
       </div>
       <p>Studio troglodyte autonome conçu dans un désert pour le calme absolu.</p>
     </div>
 
   </div>
 
-  <div style="text-align: center; margin-top: 2rem;">
-    <a href="Pages/projets.html" class="voir-projets-btn">Voir mes projets</a>
-  </div>
 
-<!-- Modale plein écran -->
-<div id="fullscreenModal" class="modal" aria-hidden="true">
-  <div class="modal-content" onclick="event.stopPropagation()">
-    <button class="modal-close" aria-label="Fermer la modale" onclick="closeFullscreen()">×</button>
+  <!-- MODALE 1 : Villa Annecy -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal1')">&times;</span>
+
+    <!-- Carrousel -->
+    <div class="carousel">
+      <button class="prev" onclick="plusSlides(-1, 1)">
+  <img src="Photo/Projet 1/Fleche.png" alt="Précédent">
+</button>
+      <img src="Projet/1-Villa Annecy/EXT L 2.png" class="carousel-image carousel1" style="display: block;">
+      <img src="Projet/1-Villa Annecy/Salon_Intérieur.png" class="carousel-image carousel1">
+      <img src="Projet/1-Villa Annecy/Coupe.png" class="carousel-image carousel1">
+      <button class="next" onclick="plusSlides(1, 1)">
+  <img src="Photo/Projet 1/Fleche.png" alt="Suivant">
+</button>
+    </div>
     
-    <div class="slider">
-      <button class="prev" aria-label="Image précédente">&#10094;</button>
-      <div class="slider-images">
-        <!-- Images affichées dynamiquement ici -->
-      </div>
-      <button class="next" aria-label="Image suivante">&#10095;</button>
+
+    <!-- Points-clés -->
+    <div class="points-clefs">
+      <div class="point">250 m²</div>
+      <div class="point">4 mois</div>
+      <div class="point">2025</div>
+      <div class="point">Résidentiel</div>
+      <div class="point">Projet seul</div>
     </div>
 
-    <div class="modal-description">
-      <p id="modalText"></p>
-      <div id="modalExtraImages" class="extra-images">
-        <!-- Miniatures / photos supplémentaires -->
+    <!-- Description -->
+    <div class="description">
+      <h3>Description</h3>
+      <p>Rénovation complète d’un hangar en résidence contemporaine, jouant sur les volumes industriels et l'ouverture sur le lac d’Annecy.</p>
+    </div>
+
+    <!-- Détails -->
+    <div class="galerie-detail">
+      <div class="detail">
+        <img src="Projet/1-Villa Annecy/Detail_structure.png">
+        <p>Structure conservée et valorisée par des baies vitrées pleine hauteur et des matériaux bruts.</p>
       </div>
     </div>
   </div>
 </div>
+
+<!-- MODALE 2 : Maison alpine -->
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal2')">&times;</span>
+
+    <div class="carousel">
+      <button class="prev" onclick="plusSlides(-1, 2)">&#10094;</button>
+      <img src="Projet/2-Projet Maison/Maison__Drone.png" class="carousel-image carousel2" style="display: block;">
+      <img src="Projet/2-Projet Maison/Intérieur_lumière.png" class="carousel-image carousel2">
+      <img src="Projet/2-Projet Maison/Coupe_lumière.png" class="carousel-image carousel2">
+      <button class="next" onclick="plusSlides(1, 2)">&#10095;</button>
+    </div>
+
+    <div class="points-clefs">
+      <div class="point">180 m²</div>
+      <div class="point">6 mois</div>
+      <div class="point">2025</div>
+      <div class="point">Résidentiel</div>
+      <div class="point">Projet seul</div>
+    </div>
+
+    <div class="description">
+      <h3>Description</h3>
+      <p>Conception d’une maison familiale ouverte sur la montagne, où la lumière naturelle façonne les volumes intérieurs.</p>
+    </div>
+
+    <div class="galerie-detail">
+      <div class="detail">
+        <img src="Projet/2-Projet Maison/Détail_ouvertures.png">
+        <p>Ouvertures orientées sud-est pour capter la lumière du matin tout en limitant les surchauffes estivales.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODALE 3 : Appartement Lyon -->
+<div id="modal3" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal3')">&times;</span>
+
+    <div class="carousel">
+      <button class="prev" onclick="plusSlides(-1, 3)">&#10094;</button>
+      <img src="Projet/3-Projet appart Lyon /Cuisine:salon.png" class="carousel-image carousel3" style="display: block;">
+      <img src="Projet/3-Projet appart Lyon /Plan.png" class="carousel-image carousel3">
+      <img src="Projet/3-Projet appart Lyon /Coupe_lumière.png" class="carousel-image carousel3">
+      <button class="next" onclick="plusSlides(1, 3)">&#10095;</button>
+    </div>
+
+    <div class="points-clefs">
+      <div class="point">90 m²</div>
+      <div class="point">2 mois</div>
+      <div class="point">2024</div>
+      <div class="point">Résidentiel</div>
+      <div class="point">Projet de groupe</div>
+    </div>
+
+    <div class="description">
+      <h3>Description</h3>
+      <p>Réaménagement complet d’un appartement lyonnais avec optimisation des circulations et ambiance troglodyte contemporaine.</p>
+    </div>
+
+    <div class="galerie-detail">
+      <div class="detail">
+        <img src="Projet/3-Projet appart Lyon /Détail_matières.png">
+        <p>Jeu de textures brutes et de lumière indirecte pour une ambiance épurée et chaleureuse.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const slideIndices = { 1: 0, 2: 0, 3: 0 };
+
+  function plusSlides(n, modalNum) {
+    const images = document.querySelectorAll(`.carousel${modalNum}`);
+    slideIndices[modalNum] += n;
+    if (slideIndices[modalNum] >= images.length) slideIndices[modalNum] = 0;
+    if (slideIndices[modalNum] < 0) slideIndices[modalNum] = images.length - 1;
+    images.forEach((img, i) => img.style.display = (i === slideIndices[modalNum] ? 'block' : 'none'));
+  }
+
+  function openModal(id) {
+    document.getElementById(id).style.display = "block";
+    const modalNum = id.replace("modal", "");
+    slideIndices[modalNum] = 0;
+    plusSlides(0, modalNum);
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    document.querySelectorAll(".modal").forEach(modal => {
+      if (event.target === modal) modal.style.display = "none";
+    });
+  }
+</script>
+
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="Pages/projets.html" class="voir-projets-btn">Voir mes projets</a>
+
+
 
   </div>
 </section>
