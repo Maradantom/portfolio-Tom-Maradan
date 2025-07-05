@@ -471,7 +471,7 @@ section {
 }
 
 .slider-images {
-  width: 100%;
+  width: 90%;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -479,7 +479,7 @@ section {
 }
 
 .slider-images img {
-  max-width: 100%;
+  max-width: 90%;
   max-height: 500px;
   border-radius: 12px;
   object-fit: contain;
@@ -810,7 +810,7 @@ html {
 <style>
 /* EN-TÊTE / LOGO */
 .site-header {
-  background-color: #efefef; /* fond beige comme ton site */
+  background-color: #efefef; 
   padding: 20px 40px;
   text-align: center;
 }
@@ -835,7 +835,6 @@ html {
   margin: 0;
 }
 </style>
-    <div class="hero-slider">
       <div class="slider-track">
         <img src="Photo/6 du début/EXT L 2.png" alt="1">
         <img src="Photo/6 du début/Scène 7-2-C03.png" alt="2">
@@ -1322,24 +1321,26 @@ document.querySelectorAll('.column').forEach(column => {
 </div>
   </section>
 <style>
-    .image-container {
-      text-align: center;
-      margin-top: 50px;
-    }
+.image-container {
+  text-align: center;
+  margin-top: 50px;
+  padding: 0 16px; /* petit padding horizontal pour éviter que ça touche les bords */
+}
 
-    .image-container img {
-      width: 600px;
-      height: auto;
-      border: 3px solid #ccc;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      border-radius: 12px;
-    }
+.image-container img {
+  max-width: 100%;  /* L'image ne dépasse jamais la largeur de son conteneur */
+  height: 700px;
+  border: 3px solid #ccc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+}
 
-    .image-caption {
-      font-style: italic;
-      color: #555;
-      margin-top: 8px;
-    }
+.image-caption {
+  font-style: italic;
+  color: #555;
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
   </style>
 </head>
 <body>
