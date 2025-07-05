@@ -62,31 +62,39 @@ section {
       font-size: 3rem;
       font-weight: 700;
     }
+
     header p {
       font-size: 1.2rem;
       margin-top: 0.5rem;
-    }
-    .hero-slider {
-      width: 100vw;
-      height: 400px;
-      overflow: hidden;
-      position: relative;
-      margin-top: 2rem;
-    }
-    .slider-track {
-      display: flex;
-      animation: slideLoop 25s linear infinite;
-    }
-    .slider-track img {
-      width: 100vw;
-      height: 400px;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-    @keyframes slideLoop {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-600vw); }
-    }
+  }
+  
+.slider {
+  overflow: hidden;
+  width: 100vw;
+}
+
+.slider-track {
+  display: flex;
+  animation: slideLoop 25s linear infinite;
+}
+
+.slider-track img {
+  width: 100vw;
+  height: 40vh; /* Plus responsive que 400px */
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+@keyframes slideLoop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-600vw); } /* 6 images × 100vw */
+}
+
+@media (max-width: 768px) {
+  .slider-track img {
+    height: 30vh;
+  }
+}
 
     nav {
       display: flex;
@@ -160,6 +168,12 @@ section {
   width: 100%;
   margin: 2rem auto;
   padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .link-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .link-box {
@@ -846,7 +860,6 @@ html {
   margin: 0;
 }
 </style>
-    <div class="hero-slider">
       <div class="slider-track">
         <img src="Photo/6 du début/EXT L 2.png" alt="1">
         <img src="Photo/6 du début/Scène 7-2-C03.png" alt="2">
