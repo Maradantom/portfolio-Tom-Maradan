@@ -160,95 +160,6 @@ section {
   box-sizing: border-box;
 }
 
-.link-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 2rem;
-  max-width: 900px;
-  width: 100%;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-@media (min-width: 768px) {
-  .link-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.link-box {
-  padding: 2rem;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  text-align: center;
-  background: white;
-  transition: 0.3s;
-}
-
-.link-box:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent);
-  background: #f9f9f9;
-}
-
-.link-box a {
-  text-decoration: none;
-  font-weight: 600;
-  color: var(--text);
-}
-
-    .to-top {
-      position: fixed;
-      bottom: 20px;
-      left: 15px;
-      font-size: 40px;
-      text-decoration: none;
-      color: #999;
-      z-index: 999;
-    }
-    .to-top:hover {
-  color: #000;
-  transform: scale(1.2);
-  transition: transform 0.3s ease;
-}
-    .socials {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .socials a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.6rem 1.2rem;
-      background-color: #f0f0f0;
-      border-radius: 8px;
-      transition: 0.3s ease;
-      border: 1px solid #ccc;
-    }
-    .socials a:hover {
-      background-color: #e3e3e3;
-      transform: scale(1.08);
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    .histoire-container {
-  display: flex;
-  flex-direction: row;
-  gap: 3rem;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
 .histoire-texte {
   flex: 1;
   min-width: 280px;
@@ -578,33 +489,6 @@ section {
   margin-bottom: 40px;
 }
 
-.timeline {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.timeline-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 40px;
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: 30px;
-  top: 0;
-  bottom: -40px;
-  width: 2px;
-  background: #ccc;
-  z-index: 0;
-}
-
 .logo {
   width: 50px;
   height: 50px;
@@ -714,33 +598,7 @@ section {
   }
 }
 
-.footer {
-  padding: 20px 10px;
-  text-align: center;
-  background-color: #ffffff;
-}
 
-.footer-logo {
-  max-width: 200px;
-  width: 100%;
-  height: auto;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-}
-
-.footer-logo:hover {
-  opacity: 1;
-}
-
-
-@media (max-width: 768px) {
-  .hero-slider {
-    height: 220px;
-  }
-  .slider-track img {
-    height: 220px;
-  }
-}
 body {
   overflow-x: hidden;
 }
@@ -909,6 +767,94 @@ html {
       <div class="link-box"><a href="#contact">Me contacter</a></div>
     </div>
   </section>
+<style>.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .link-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.link-box {
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  text-align: center;
+  background: white;
+  transition: 0.3s;
+}
+
+.link-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  background: #f9f9f9;
+}
+
+.link-box a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--text);
+}
+
+    .to-top {
+      position: fixed;
+      bottom: 20px;
+      left: 15px;
+      font-size: 40px;
+      text-decoration: none;
+      color: #999;
+      z-index: 999;
+    }
+    .to-top:hover {
+  color: #000;
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+    .socials {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .socials a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.6rem 1.2rem;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      transition: 0.3s ease;
+      border: 1px solid #ccc;
+    }
+    .socials a:hover {
+      background-color: #e3e3e3;
+      transform: scale(1.08);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .histoire-container {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}</style>
 
   <section id="histoire">
   <h2>Mon histoire et parcours</h2>
@@ -1161,6 +1107,33 @@ html {
     </div>
 
   </div>
+<style>  .timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: -40px;
+  width: 2px;
+  background: #ccc;
+  z-index: 0;
+}</style>
+
 </section>
   <section id="passion"><h2>Ma passion pour les drones & la photo</h2></section>
 <section id="photo-passion" class="photo-section">
@@ -1343,8 +1316,9 @@ document.querySelectorAll('.column').forEach(column => {
     </div>
   </section>
 
-</div>
-  </section>
+  <div class="image-container">
+    <img src="Photo/C.V Tom Maradan.jpg" >
+  </div>
 <style>
 .image-container {
   text-align: center;
@@ -1365,18 +1339,43 @@ document.querySelectorAll('.column').forEach(column => {
   color: #555;
   margin-top: 8px;
   font-size: 0.95rem;
-}
-  </style>
-</head>
-<body>
+} </style>
 
-  <div class="image-container">
-    <img src="Photo/C.V Tom Maradan.jpg" >
-  </div>
+
 <footer class="footer">
   <img src="Photo/Logo/Studiotm.png" alt="Logo Tom Maradan" class="footer-logo">
+  <p>© 2025 Tom Maradan — Tous droits réservés</p>
 </footer>
 
-  <footer>© 2025 Tom Maradan — Tous droits réservés</footer>
+<style>
+  .footer {
+    padding: 20px 10px;
+    text-align: center;
+    background-color: #ffffff;
+  }
+
+  .footer-logo {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .footer-logo:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .hero-slider {
+      height: 220px;
+    }
+
+    .slider-track img {
+      height: 220px;
+    }
+  }
+</style>
+
 </body>
 </html>
